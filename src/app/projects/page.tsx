@@ -1,4 +1,37 @@
 import Image from "next/image";
+interface IProject {
+    name: string;
+    imagePath: string;
+    description: string;
+    techStack: string[];
+  }
+  
+  interface ProjectTileProps {
+    project: IProject;
+  }
+  
+  const ProjectTile: React.FC<ProjectTileProps> = ({ project }) => (
+    <div className="relative transition duration-300 hover:blur-md">
+      <Image
+        src={project.imagePath}
+        alt={project.name}
+        layout="responsive"
+        width={1600}
+        height={900}
+      />
+      <div className="absolute inset-0 flex flex-col justify-center items-center">
+        <h2 className="text-2xl text-cinereous drop-shadow-lg">{project.name}</h2>
+        <div className="flex flex-row space-x-2">
+          {project.techStack.map((techItem, index) => (
+            <h2 key={index} className="text-papaya-whip bg-chinese-violet drop-shadow-lg rounded-lg m-1">
+              {techItem}
+            </h2>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+  
 
 export default function Projects(): React.JSX.Element {
   const projects = [
@@ -46,26 +79,7 @@ export default function Projects(): React.JSX.Element {
     <div className="bg-raisin-black min-h-screen">
       <div className="container mx-auto p-4 grid grid-cols-3 gap-4">
         {projects.map((project, index) => (
-          <div
-            key={index}
-            className="relative hover:bg-opacity-50 hover:bg-black transition duration-300"
-          >
-            <Image
-              src={project.imagePath}
-              alt={project.name}
-              layout="responsive"
-              width={1600}
-              height={900}
-              className="blur-sm hover:invert"
-              // ...other img props
-            />
-            <div className="absolute inset-0 flex flex-col justify-center items-center">
-              <h2 className="text-2xl text-cinereous drop-shadow-lg">{project.name}</h2>
-              {project.techStack.map((techItem, index) => (
-                <div className="flex flex-row"> <p className="text-chinese-violet drop-shadow-lg border rounded-lg"> {techItem} </p> </div> 
-              ))}
-            </div>
-          </div>
+          <ProjectTile key={index} project={project} />
         ))}
       </div>
     </div>
