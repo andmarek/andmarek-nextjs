@@ -11,11 +11,11 @@ export default function NavBar(): React.JSX.Element {
   ];
 
   return (
-    <nav className="bg-raisin-black text-white p-4 w-full">
+    <nav className="bg-raisin-black p-4 w-full font-mono">
       <div className="container mx-auto flex justify-between items-center">
         <div>
-          <Link className="text-2xl hover:text-3xl font-bold transition-all duration-500" href="/">
-            Andrew
+          <Link className="text-2xl text-champagne-pink hover:text-papaya-whip hover:drop-shadow-glow font-bold transition-all duration-500" href="/">
+            andmarek
           </Link>
         </div>
         <div className="space-x-4">

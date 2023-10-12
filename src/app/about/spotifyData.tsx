@@ -5,7 +5,6 @@ const TopTenTracks = async () => {
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET
     });
-    let topTenTracks = null;
 
     try {
         const credentials = await spotifyApi.clientCredentialsGrant();
@@ -13,14 +12,21 @@ const TopTenTracks = async () => {
         const trackData = await spotifyApi.getPlaylistTracks('15HVxOaAQS1RquOtu0Ije2');
         const tracks = trackData.body.items;
 
-    return (
-        <div className="text-papaya-whip">
-            {tracks.map((track, index) => (<div key={index}>{track.track.name} - {track.track.artists[0].name}</div>))}
-        </div>
-    )
+        return (
+            <div className="bg-raisin-black text-cinereous p-6 mx-auto w-full">
+                {tracks.map((track, index) => (
+                    <div 
+                        key={index} 
+                        className="border-b py-2"
+                    >
+                        {index+1}. {track.track.name} - {track.track.artists[0].name}
+                    </div>
+                ))}
+            </div>
+        )
     } catch (err) {
         console.log("Something went wrong!", err)
-        return <div> Error fetching tracks occurred. </div>
+        return <div className="bg-raisin-black text-cinereous p-6 mx-auto w-full md:w-3/4 lg:w-1/2"> Error fetching tracks occurred. </div>
     }
 };
 

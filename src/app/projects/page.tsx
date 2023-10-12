@@ -11,7 +11,7 @@ interface IProject {
   }
   
   const ProjectTile: React.FC<ProjectTileProps> = ({ project }) => (
-    <div className="relative transition duration-300 hover:blur-md">
+    <div className="relative transition duration-300 blur-sm hover:blur-0">
       <Image
         src={project.imagePath}
         alt={project.name}
