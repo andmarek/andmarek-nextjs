@@ -12,7 +12,7 @@ export default function NavBar(): React.JSX.Element {
 
   return (
     <nav className="bg-raisin-black p-4 w-full font-mono">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div>
           <Link className="text-2xl text-champagne-pink hover:text-papaya-whip hover:drop-shadow-glow font-bold transition-all duration-500" href="/">
             andmarek
