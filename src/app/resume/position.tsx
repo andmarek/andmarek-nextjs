@@ -1,30 +1,31 @@
 interface WorkPositionProps {
-    name: string;
-    entity: string;
-    from: string;
-    to: string;
-    responsibilities: string[];
+  name: string;
+  entity: string;
+  from: string;
+  to: string;
+  responsibilities: string[];
 };
 
 interface WorkPositionsListProps {
-    positions: WorkPositionProps[];
+  positions: WorkPositionProps[];
 };
 
 export default function WorkPositions({ positions }: WorkPositionsListProps): React.JSX.Element {
   return (
     <div className="space-y-8">
       {positions.map((position, index) => (
-        <div key={index} className="border-2 p-6 bg-licorice rounded-lg">
-          <h2 className="text-papaya-whip text-2xl font-extrabold tracking-tight">
-            <span className="font-extrabold text-cinereous">{position.name}</span> - <span className="text-moss-green">{position.entity}</span>
-          </h2>
-          <p className="text-sm font-mono text-cinereous mt-1">
-            {position.from} to {position.to}
-          </p>
-          <ul className="list-disc list-inside mt-4 text-champagne-pink pl-4 leading-7">
+        <div key={index} className="py-4 border-b border-gray-300">
+          <div className="flex justify-between items-end">
+            <h2 className="text-papaya-whip text-2xl font-semibold text-black">{position.name}</h2>
+            <span className="text-champagne-pink text-sm">{position.from} - {position.to}</span>
+          </div>
+
+          <p className="text-lg text-moss-green mt-1">{position.entity}</p>
+
+          <ul className="list-none pl-0 mt-4 text-base text-gray-700">
             {position.responsibilities.map((r, i) => (
-              <li key={i} className="mb-2">
-                {r}
+              <li className="text-champagne-pink" key={i}>
+                <span className="text-champagne-pink mr-2">•</span>{r}
               </li>
             ))}
           </ul>

@@ -50,7 +50,7 @@ export default function Resume(): React.JSX.Element {
   return (
     <div className="bg-raisin-black flex min-h-screen flex-col items-center">
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl mb-4 font-bold">Work Experience</h1>
+        <h1 className="text-papaya-whip text-2xl mb-4 font-bold">Work Experience</h1>
         <WorkPositions positions={positions} />
         <Education />
       </div>

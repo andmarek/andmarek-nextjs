@@ -10,18 +10,21 @@ const About = () => {
             whoami
           </h1>
           <p className="text-lg leading-relaxed font-light tracking-wide">
-            Hi! I'm <span className="font-medium">Andrew Marek</span>, a software engineer at <span className="italic">Optum</span>. 
-            Welcome to my digital <span className="underline">homepage</span>, where you can find information on projects 
-            I've worked on, my resume, and gain a little insight into who I am and what I'm about. 
+            Hi, I&apos;m Andrew! I&apos;m a software engineer currently living in Seattle.
+            I currently work at Optum, as a backend engineer.
+
+            I&apos;m well-versed in Python, AWS, and React.  Although, I&apos;m always learning new stuff in my freetime.
+
+
           </p>
         </div>
 
         <h1 className="text-4xl font-extrabold text-papaya-whip mb-4 tracking-tighter leading-tight font-serif">
-            current 10 spotify playlist
-          </h1>
+          current 10
+        </h1>
         <div className="bg-licoric rounded-lg shadow-lg">
           <p className="text-lg leading-relaxed mb-4 font-light tracking-wide">
-            I maintain a playlist of my top 10 favorite songs at any given time 
+            I listen to *a lot* of music, and so naturally I maintain a playlist of my top 10 favorite songs at any given time. Below is what&apos;s currently on the list (powered by Spotify).
           </p>
 
           <div className="">
