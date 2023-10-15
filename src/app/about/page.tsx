@@ -2,8 +2,20 @@
 
 import { useEffect, useState } from "react";
 
+type Track = {
+  id: string;
+  name: string;
+  // ... other properties
+};
+
+type Playlist = {
+  items: {
+    track: Track;
+  }[];
+};
+
 export default function About() {
-  const [playlist, setPlaylist] = useState(null);
+  const [playlist, setPlaylist] = useState<Playlist | null>(null);
 
   useEffect(() => {
     const fetchPlaylistData = async () => {
