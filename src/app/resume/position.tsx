@@ -24,7 +24,7 @@ export default function WorkPositions({ positions }: WorkPositionsListProps): Re
 
           <ul className="list-none pl-0 mt-4 text-base text-gray-700">
             {position.responsibilities.map((r, i) => (
-              <li className="text-champagne-pink" key={i}>
+              <li className="text-champagne-pink py-2" key={i}>
                 <span className="text-champagne-pink mr-2">•</span>{r}
               </li>
             ))}

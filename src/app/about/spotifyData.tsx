@@ -1,38 +1,37 @@
-import SpotifyWebApi from "spotify-web-api-node";
+import axios from "axios";
 
-const TopTenTracks = async () => {
-  const spotifyApi = new SpotifyWebApi({
-    clientId: process.env.SPOTIFY_CLIENT_ID,
-    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-  });
-
+const fetchPlaylist = async () => {
+  console.log('Hi')
   try {
-    const credentials = await spotifyApi.clientCredentialsGrant();
-    spotifyApi.setAccessToken(credentials.body["access_token"]);
-    const trackData = await spotifyApi.getPlaylistTracks(
-      "15HVxOaAQS1RquOtu0Ije2"
+    const tokenResponse = await axios.post(
+      "https://accounts.spotify.com/api/token",
+      "grant_type=client_credentials",
+      {
+        headers: {
+          Authorization:
+            "Basic " +
+            Buffer.from(
+              process.env.SPOTIFY_CLIENT_ID +
+                ":" +
+                process.env.SPOTIFY_CLIENT_SECRET
+            ).toString("base64"),
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
     );
-    const tracks = trackData.body.items;
-
-    return (
-      <div className="bg-raisin-black text-cinereous p-6 mx-auto w-full">
-        {tracks.map((track, index) => (
-          <div key={index} className="border-b py-2">
-            {index + 1}. {track.track?.name || "Unknown Track"} -{" "}
-            {track.track?.artists?.[0]?.name || "Unknown Artist"}
-          </div>
-        ))}
-      </div>
+    const accessToken = tokenResponse.data.access_token;
+    const playlistResponse = await axios.get(
+      "https://api.spotify.com/v1/playlists/15HVxOaAQS1RquOtu0Ije2/tracks",
+      {
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      }
     );
-  } catch (err) {
-    console.log("Something went wrong!", err);
-    return (
-      <div className="bg-raisin-black text-cinereous p-6 mx-auto w-full md:w-3/4 lg:w-1/2">
-        {" "}
-        Error fetching tracks occurred.{" "}
-      </div>
-    );
+    return playlistResponse.data;
+  } catch (error) {
+    console.log("Error fetching Spotify playlist: ", error);
+    throw error;
   }
 };
-
-export default TopTenTracks;
+export { fetchPlaylist }
