@@ -1,11 +1,22 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
+
+type ExternalUrls = {
+  spotify: string;
+};
 
 type Track = {
   id: string;
   name: string;
-  // ... other properties
+  external_urls: ExternalUrls;
+  artists: [
+    {
+      name: string;
+      external_urls: ExternalUrls;
+    }
+  ];
 };
 
 type Playlist = {
@@ -17,23 +28,22 @@ type Playlist = {
 export default function About() {
   const [playlist, setPlaylist] = useState<Playlist | null>(null);
 
+  async function fetchPlaylistData() {
+    try {
+      const response = await fetch("/api/spotify");
+      const data = await response.json();
+      setPlaylist(data);
+      data.items.map((item: any) => console.log(item.track));
+    } catch (error) {
+      console.log("Error fetching Spotify playlist: ", error);
+      throw error;
+    }
+  }
+
+  //fetchPlaylistData();
   useEffect(() => {
-    const fetchPlaylistData = async () => {
-      try {
-        const response = await fetch("/api/spotify");
-        const data = await response.json();
-        setPlaylist(data);
-      } catch (error) {
-        console.error("Error fetching playlist from API:", error);
-      }
-    };
-
     fetchPlaylistData();
-
-    // Set up interval to fetch data every few minutes (e.g., every 10 minutes)
-    const interval = setInterval(fetchPlaylistData, 600000); // 600000ms = 10 minutes
-
-    // Clear interval on component unmount
+    const interval = setInterval(fetchPlaylistData, 60000); // 600000ms = 10 minutes
     return () => clearInterval(interval);
   }, []);
 
@@ -55,7 +65,7 @@ export default function About() {
         <h1 className="text-4xl font-extrabold text-papaya-whip mb-4 tracking-tighter leading-tight font-serif">
           current 10
         </h1>
-        <div className="bg-licoric rounded-lg shadow-lg">
+        <div className="bg-licoric rounded-lg">
           <p className="text-lg leading-relaxed mb-4 font-light tracking-wide">
             I listen to *a lot* of music, and so naturally I maintain a playlist
             of my top 10 favorite songs at any given time. Below is what&apos;s
@@ -63,10 +73,26 @@ export default function About() {
           </p>
 
           {playlist && (
-            <section>
+            <section className="hover:border-moss-green transition-all duration-300 border-2 rounded-lg p-5">
               <ul className="mt-4">
-                {playlist.items.map((item) => (
-                  <li className="font-mono transition-all duration-300 p-2 hover:text-papaya-whip text-champagne-pink" key={item.track.id}>{item.track.name}</li>
+                {playlist.items.map((item, index) => (
+                  <div className="flex" key={index}>
+                    <Link
+                      href={item.track.external_urls.spotify}
+                      className="font-mono transition-all duration-300 p-2 hover:text-papaya-whip text-champagne-pink"
+                      key={item.track.id}
+                    >
+                      {" "}
+                      {index + 1}. {item.track.name} -{" "}
+                    </Link>
+                    <Link
+                      href={item.track.artists[0].external_urls.spotify}
+                      className="p-2 font-mono text-chinese-violet hover:text-plum transition-all"
+                      key={`${item.track.artists[0].name}-${index}`}
+                    >
+                      {item.track.artists[0].name}{" "}
+                    </Link>
+                  </div>
                 ))}
               </ul>
             </section>
