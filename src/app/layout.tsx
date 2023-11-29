@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
-        <title> andmarek.com </title>
+        <title> andmarek </title>
       </head>
       <body className={inter.className}>
         <NavBar />

@@ -54,7 +54,7 @@ export default function Projects(): React.JSX.Element {
   return (
     <div className="bg-raisin-black">
     <div className="min-h-screen text-mono container mx-auto p-10 bg-raisin-black">
-      <h2 className="text-champagne-pink hover:text-papaya-whip transition-all duration-300 text-3xl font-bold mb-10">projects</h2>
+      <h2 className="text-champagne-pink hover:text-papaya-whip transition-all duration-300 text-3xl font-bold mb-10 font-sans">projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {projects.map((project, index) => (
           <div

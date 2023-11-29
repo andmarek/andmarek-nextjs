@@ -25,10 +25,10 @@ export default function Home() {
   return (
     <div>
       <main className="bg-raisin-black flex min-h-screen flex-col items-center">
-        <div className="items-center justify-between font-mono text-sm">
+        <div className="items-center justify-between font-sans text-sm">
           <Hero onUpdateLoadState={handleLoadedChange} />
         </div>
-        <div className={`transition-opacity duration-1000 ease-in-out flex items-center space-x-4 justify-between font-mono text-sm ${loaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`font-sans transition-opacity duration-1000 ease-in-out flex items-center space-x-4 justify-between text-sm ${loaded ? 'opacity-100' : 'opacity-0'}`}>
           <HomeLinkWrapper hrefProp="https://www.linkedin.com/in/andmarek/" text="linkedin" />
           <HomeLinkWrapper hrefProp="https://github.com/andmarek" text="github" />
           <HomeLinkWrapper hrefProp="https://twitter.com/AndrewMarek" text="twitter" />

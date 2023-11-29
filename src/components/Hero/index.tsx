@@ -11,7 +11,7 @@ export default function Hero({ onUpdateLoadState }: { onUpdateLoadState: (state:
   };
 
   return (
-    <div className="text-champagne-pink flex flex-col items-center m-4 sm:m-10 md:m-20 font-mono">
+    <div className="text-champagne-pink flex flex-col items-center m-4 sm:m-10 md:m-20 font-sans">
       <div className={`transition-opacity duration-1000 ease-in-out container w-full flex flex-col sm:flex-row items-center p-4 sm:p-10 justify-center ${loaded ? 'opacity-100' : 'opacity-0'}`}>
         <div id="intro" className="text-2xl sm:text-3xl md:text-4xl p-4 sm:p-5 text-center sm:text-left">
           <h1>Hello, I&apos;m</h1>
