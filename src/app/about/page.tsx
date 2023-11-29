@@ -62,7 +62,7 @@ export default function About() {
           </p>
         </div>
 
-        <h1 className="text-4xl font-extrabold text-papaya-whip mb-4 tracking-tighter leading-tight font-serif">
+        <h1 className="text-4xl font-extrabold text-chinese-violet mb-4 tracking-tighter leading-tight font-serif">
           current 10
         </h1>
         <div className="bg-licoric rounded-lg">

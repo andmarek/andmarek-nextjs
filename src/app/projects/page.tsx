@@ -20,35 +20,35 @@ export default function Projects(): React.JSX.Element {
       imagePath: "/pacequick-screen.png",
       description: "A running utility to calcuate paces, quickly.",
       techStack: ["Sveltekit", "AWS"],
-      link: ""
+      link: "https://pacequick.com"
     },
     {
       name: "andmarek.com",
       imagePath: "/me_cleaned_up.png",
       description: "This website :)",
       techStack: ["NextJS", "React", "Tailwind", "TypeScript"],
-      link: ""
+      link: "https://andmarek.com"
     },
     {
       name: "IntervalTreaps",
       imagePath: "/treap_image.png",
       description: "An interval treap implementation in Java",
       techStack: ["Java", "Data Structures", "Algorithms"],
-      link: ""
+      link: "https://github.com/andmarek/IntervalTreaps"
     },
     {
       name: "sshell",
       imagePath: "/neofetch.png",
       description: "A simple shell written in C.",
       techStack: ["C"],
-      link: ""
+      link: "https://github.com/andmarek/sshell"
     },
     {
       name: "VimSweep",
       imagePath: "/vim_sweep.png",
       description: "A vim-inspired minesweeper clone.",
       techStack: ["C++"],
-      link: ""
+      link: "https://github.com/andmarek/Vim-Sweep"
     },
   ];
   return (
