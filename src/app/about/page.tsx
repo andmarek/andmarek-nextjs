@@ -51,8 +51,9 @@ export default function About() {
     <div className="bg-raisin-black text-cinereous min-h-screen p-6 font-sans">
       <div className="max-w-2xl mx-auto">
         <div id="intro" className="mb-12">
-          <h1 className="text-4xl font-extrabold text-papaya-whip mb-4 tracking-tighter leading-tight font-serif">
+          <h1 className="text-4xl text-papaya-whip mb-4 tracking-tighter leading-tight font-sans">
             whoami
+            <span className="animate-pulse">| </span>
           </h1>
           <p className="text-lg leading-relaxed font-light tracking-wide">
             Hi, I&apos;m Andrew! I&apos;m a software engineer currently living
@@ -62,11 +63,11 @@ export default function About() {
           </p>
         </div>
 
-        <h1 className="text-4xl font-extrabold text-chinese-violet mb-4 tracking-tighter leading-tight font-serif">
+        <h1 className="text-4xl  text-papaya-whip mb-4 tracking-tighter leading-tight font-mono">
           current 10
         </h1>
         <div className="bg-licoric rounded-lg">
-          <p className="text-lg leading-relaxed mb-4 font-light tracking-wide">
+          <p className="text-lg leading-relaxed mb-4 font-light tracking-wide font-mono">
             I listen to *a lot* of music, and so naturally I maintain a playlist
             of my top 10 favorite songs at any given time. Below is what&apos;s
             currently on the list (powered by Spotify).
