@@ -33,8 +33,6 @@ const fetchPlaylist = async () => {
   }
 };
 
-
-
 export async function GET(req: Request, res: Response) {
   try {
     const data = await fetchPlaylist();

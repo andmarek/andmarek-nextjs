@@ -40,11 +40,8 @@ export default function About() {
     }
   }
 
-  //fetchPlaylistData();
   useEffect(() => {
     fetchPlaylistData();
-    const interval = setInterval(fetchPlaylistData, 60000); // 600000ms = 10 minutes
-    return () => clearInterval(interval);
   }, []);
 
   return (
