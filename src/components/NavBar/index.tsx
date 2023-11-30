@@ -4,8 +4,8 @@ import NavLink from "./navLink";
 
 export default function NavBar(): React.JSX.Element {
   const links = [
-    ["index", "/"],
-    ["whoami", "/about"],
+    ["home", "/"],
+    ["about", "/about"],
     ["résumé", "/resume"],
     ["projects", "/projects"],
   ];

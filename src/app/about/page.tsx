@@ -52,7 +52,7 @@ export default function About() {
       <div className="max-w-2xl mx-auto">
         <div id="intro" className="mb-12">
           <h1 className="text-4xl text-papaya-whip mb-4 tracking-tighter leading-tight font-sans">
-            whoami
+            about
           </h1>
           <p className="text-lg leading-relaxed font-light tracking-wide font-sans">
             Hi, I&apos;m Andrew! I&apos;m a software engineer currently living
