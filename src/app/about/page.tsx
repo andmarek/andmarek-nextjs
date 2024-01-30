@@ -1,4 +1,6 @@
 import Link from "next/link";
+const { signal } = new AbortController()
+
 import fetchPlaylist from "@/app/about/spotify";
 
 type ExternalUrls = {
@@ -25,7 +27,7 @@ type Playlist = {
 async function SpotifyPlaylists() {
   async function fetchPlaylistData() {
     try {
-      const response = await fetch("/api/spotify");
+      const response = await fetch("/api/spotify", { signal });
       const data = await response.json();
       return data
     } catch (error) {
@@ -33,7 +35,9 @@ async function SpotifyPlaylists() {
       throw error;
     }
   }
+
   const playlist = await fetchPlaylist();
+
   return (
     <section className="hover:border-moss-green transition-all duration-300 border-2 rounded-lg p-5">
       <ul className="mt-4">
