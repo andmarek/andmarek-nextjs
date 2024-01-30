@@ -37,7 +37,7 @@ async function SpotifyPlaylists() {
   return (
     <section className="hover:border-moss-green transition-all duration-300 border-2 rounded-lg p-5">
       <ul className="mt-4">
-        {playlist.items.map((item, index) => (
+        {playlist.items.map((item: any, index: any) => (
           <div className="flex" key={index}>
             <Link
               href={item.track.external_urls.spotify}
