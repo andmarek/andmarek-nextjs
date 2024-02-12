@@ -1,6 +1,8 @@
 import axios from "axios";
 
+
 const fetchPlaylist = async () => {
+
   try {
     const tokenResponse = await axios.post(
       "https://accounts.spotify.com/api/token",

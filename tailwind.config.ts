@@ -10,14 +10,14 @@ const config: Config = {
     colors: {
       "moss-green": "#959A6B",
       "raisin-black": "#2D2424",
-      licorice: "#1A515",
+      "licorice": "#1A515",
       "van-dyke": "#453636",
-      wenge: "#725A5A",
-      cinereous: "#9C8181",
+      "wenge": "#725A5A",
+      "cinereous": "#9C8181",
       "chinese-violet": "#756D94",
       "champagne-pink": "#DCC9BC",
       "papaya-whip": "#FFE9C7",
-      plum: "#7B3D79",
+      "plum": "#7B3D79",
     },
     extend: {
       keyframes: {

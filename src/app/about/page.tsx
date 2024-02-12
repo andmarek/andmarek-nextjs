@@ -1,5 +1,6 @@
 import Link from "next/link";
-const { signal } = new AbortController()
+import { useRouter } from 'next/router';
+
 
 import fetchPlaylist from "@/app/about/spotify";
 
@@ -25,10 +26,17 @@ type Playlist = {
   }[];
 };
 async function SpotifyPlaylists() {
+  const router = useRouter();
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+
   async function fetchPlaylistData() {
     try {
-      const response = await fetch("/api/spotify", { signal });
+      const response = await fetch("/api/spotify");
       const data = await response.json();
+      refreshData();
       return data
     } catch (error) {
       console.log("Error fetching Spotify playlist: ", error);
@@ -67,6 +75,7 @@ async function SpotifyPlaylists() {
 }
 
 export default async function About() {
+
   return (
     <div className="bg-raisin-black text-cinereous min-h-screen p-6 font-sans">
       <div className="max-w-2xl mx-auto">
