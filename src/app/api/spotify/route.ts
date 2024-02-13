@@ -1,8 +1,9 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 const fetchPlaylist = async () => {
-  console.log("wtf");
   try {
     const tokenResponse = await axios.post(
       "https://accounts.spotify.com/api/token",
