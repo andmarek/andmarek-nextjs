@@ -29,7 +29,7 @@ type Playlist = {
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 function useSpotifyPlaylists() {
-  const { data, error } = useSWR<Playlist>("/api/spotify", fetcher, { refreshInterval: 60 });
+  const { data, error } = useSWR<Playlist>("/api/spotify", fetcher, { refreshInterval: 10000 });
   return {
     playlists: data,
     isLoading: !error && !data,
