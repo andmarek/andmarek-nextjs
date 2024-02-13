@@ -32,6 +32,8 @@ export default function Home() {
           <HomeLinkWrapper hrefProp="https://www.linkedin.com/in/andmarek/" text="linkedin" />
           <HomeLinkWrapper hrefProp="https://github.com/andmarek" text="github" />
           <HomeLinkWrapper hrefProp="https://twitter.com/AndrewMarek" text="twitter" />
+          <HomeLinkWrapper hrefProp="https://www.strava.com/athletes/16371872" text="strava" />
+
         </div>
       </main>
     </div>
