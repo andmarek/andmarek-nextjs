@@ -1,8 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import useSWR from "swr";
 
-
-import fetchPlaylist from "@/app/about/spotify";
 
 type ExternalUrls = {
   spotify: string;
@@ -25,31 +25,24 @@ type Playlist = {
     track: Track;
   }[];
 };
-async function SpotifyPlaylists() {
-  const router = useRouter();
 
-  const refreshData = () => {
-    router.replace(router.asPath);
-  }
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-  async function fetchPlaylistData() {
-    try {
-      const response = await fetch("/api/spotify");
-      const data = await response.json();
-      refreshData();
-      return data
-    } catch (error) {
-      console.log("Error fetching Spotify playlist: ", error);
-      throw error;
-    }
-  }
-
-  const playlist = await fetchPlaylist();
+function useSpotifyPlaylists() {
+  const { data, error } = useSWR<Playlist>("/api/spotify", fetcher, { refreshInterval: 60 });
+  return {
+    playlists: data,
+    isLoading: !error && !data,
+    isError: error,
+  };
+}
+function SpotifyPlaylists() {
+  const { playlists, isLoading, isError } = useSpotifyPlaylists();
 
   return (
     <section className="hover:border-moss-green transition-all duration-300 border-2 rounded-lg p-5">
       <ul className="mt-4">
-        {playlist.items.map((item: any, index: any) => (
+        {playlists?.items?.map((item: any, index: any) => (
           <div className="flex" key={index}>
             <Link
               href={item.track.external_urls.spotify}
@@ -74,7 +67,7 @@ async function SpotifyPlaylists() {
 
 }
 
-export default async function About() {
+export default function About() {
 
   return (
     <div className="bg-raisin-black text-cinereous min-h-screen p-6 font-sans">

@@ -11,7 +11,7 @@ export default function SqsFormatter() {
     }
   }
 
-  let [userInput, setUserInput] = useState();
+  let [userInput, setUserInput] = useState("");
   let [result, setResult] = useState("");
 
   function formatText(userInputText: string) {
@@ -27,7 +27,7 @@ export default function SqsFormatter() {
 
   return (
     <form className="flex flex-col w-1/2" onSubmit={e => onSubmit(e, userInput)}>
-      <textarea type="text" onChange={e => setUserInput(e.target.value)} className="text-raisin-black rounded-lg"> </textarea>
+      <textarea onChange={e => setUserInput(e.target.value)} className="text-raisin-black rounded-lg"> </textarea>
       <button className="rounded hover:cinereous bg-chinese-violet text-raisin-black"> Format </button>
       <div>
         {result ? result : ""}

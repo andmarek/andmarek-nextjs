@@ -1,8 +1,8 @@
 import axios from "axios";
-
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const fetchPlaylist = async () => {
-
+  console.log("wtf");
   try {
     const tokenResponse = await axios.post(
       "https://accounts.spotify.com/api/token",
@@ -38,9 +38,9 @@ const fetchPlaylist = async () => {
 export async function GET(req: Request, res: Response) {
   try {
     const data = await fetchPlaylist();
-    return Response.json((data));
+    return Response.json(data)
   } catch (error) {
     console.error('Error fetching Spotify playlist:', error);
-    return Response.json({ "error": "error fetching spotify playlist." })
+    return Response.json({ error: 'Failed to fetch Spotify playlist.' });
   }
-};
+}
