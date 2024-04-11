@@ -6,7 +6,6 @@ export default function NavBar(): React.JSX.Element {
   const links = [
     ["home", "/"],
     ["about", "/about"],
-    ["résumé", "/resume"],
     ["projects", "/projects"],
   ];
 
